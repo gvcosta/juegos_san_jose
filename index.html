@@ -183,13 +183,13 @@ const GAMES = [
     id:'snake', icon:'🐛', name:'El Gusanito', type:'arrow',
     desc:'Come manzanas con el gusanito',
     levels:[
-      {label:'Muy lento, tablero grande',speed:12,size:30,walls:false},
-      {label:'Un poco más rápido',speed:10,size:30,walls:false},
-      {label:'Velocidad media',speed:8,size:28,walls:false},
-      {label:'Más rápido',speed:7,size:28,walls:true},
-      {label:'¡Con paredes!',speed:6,size:26,walls:true},
-      {label:'Rápido y difícil',speed:5,size:26,walls:true},
-      {label:'¡Experto! Muy rápido',speed:3,size:24,walls:true},
+      {label:'Muy lento, tablero grande',speed:22,size:30,walls:false},
+      {label:'Un poco más rápido',speed:18,size:30,walls:false},
+      {label:'Velocidad media',speed:14,size:28,walls:false},
+      {label:'Más rápido',speed:11,size:28,walls:true},
+      {label:'¡Con paredes!',speed:9,size:26,walls:true},
+      {label:'Rápido y difícil',speed:7,size:26,walls:true},
+      {label:'¡Experto! Muy rápido',speed:5,size:24,walls:true},
     ]
   },
   {
@@ -209,13 +209,13 @@ const GAMES = [
     id:'dino', icon:'🦕', name:'Dino Saltarín', type:'arrow',
     desc:'Salta los obstáculos con el dinosaurio',
     levels:[
-      {label:'Pocos obstáculos, lento',speed:2.5,freq:90,double:false},
-      {label:'Un poco más rápido',speed:3,freq:80,double:false},
-      {label:'Velocidad media',speed:3.5,freq:70,double:false},
-      {label:'Obstáculos frecuentes',speed:4,freq:60,double:false},
-      {label:'Doble salto disponible',speed:4.5,freq:55,double:true},
-      {label:'Rápido con doble salto',speed:5.5,freq:45,double:true},
-      {label:'¡Experto! Muy rápido',speed:7,freq:38,double:true},
+      {label:'Pocos obstáculos, lento',speed:1.2,freq:130,double:false},
+      {label:'Un poco más rápido',speed:1.6,freq:115,double:false},
+      {label:'Velocidad media',speed:2.0,freq:100,double:false},
+      {label:'Obstáculos frecuentes',speed:2.5,freq:85,double:false},
+      {label:'Doble salto disponible',speed:3.0,freq:72,double:true},
+      {label:'Rápido con doble salto',speed:3.8,freq:60,double:true},
+      {label:'¡Experto! Muy rápido',speed:5.0,freq:48,double:true},
     ]
   },
   {
@@ -704,7 +704,7 @@ function playDino(cfg) {
     obstacles=obstacles.filter(o=>o.x>-30);
     let hit=false;
     obstacles.forEach(o=>{
-      o.x-=cfg.speed+(dist/2000);
+      o.x-=cfg.speed+(dist/5000);
       ctx.fillStyle='#16a34a';ctx.fillRect(o.x,183-o.h,o.w,o.h);
       ctx.fillStyle='#166534';ctx.fillRect(o.x-3,183-o.h-10,o.w+6,12);
       if(o.double){
